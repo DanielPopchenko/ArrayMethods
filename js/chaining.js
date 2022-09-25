@@ -60,3 +60,50 @@
 //  */
 
 // console.table(onlineAndSorted);
+
+const numbers = [1, 5, 2, 4, 3];
+// const greaterThenTwo = numbers.filter((num) => num > 2);
+// console.log("greaterThenTwo", greaterThenTwo);
+
+// const multByThree = greaterThenTwo.map((num) => num * 3);
+// console.log(multByThree);
+// const sorted = multByThree.sort((a, b) => a - b);
+
+/**
+ * Цепочка вызовов, сделали все тоже самое что и вверху только
+ * намного короче и без доп переменных
+ * все наши методы возвращают нам массив поэтому мы можем
+ * делать эту цепочку методов работы с массивом
+ */
+const sorted = numbers
+  .filter((num) => num > 2)
+  .map((num) => num * 3)
+  .sort((a, b) => a - b);
+console.log(sorted);
+
+/**
+ * Сортируем тех кто онлайн по рангу
+ * фильтруем и потом сортируем
+ */
+
+const players = [
+  { id: "player-1", name: "Mango", rank: 300, online: true },
+  { id: "player-2", name: "Poly", rank: 250, online: true },
+  { id: "player-3", name: "Ajax", rank: 900, online: false },
+  { id: "player-4", name: "Kiwi", rank: 700, online: false },
+  { id: "player-5", name: "Chelsey", rank: 500, online: true },
+];
+
+const onlineAndSorted = players
+  .filter((player) => player.online)
+  .sort((plA, plB) => plA.rank - plB.rank);
+console.table(onlineAndSorted);
+
+/**
+ * Chaining в методах обьекта как jquery
+ */
+
+const element = {
+  class: "",
+  hovered: false,
+};
