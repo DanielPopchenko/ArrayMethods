@@ -106,4 +106,22 @@ console.table(onlineAndSorted);
 const element = {
   class: "",
   hovered: false,
+  changeClass(cls) {
+    this.class = cls;
+
+    return this;
+  },
+  toggleHovered() {
+    this.hoverd = !this.hovered;
+
+    return this;
+  },
 };
+
+/**
+ * ретернит undefined, поэтому не работает
+ * --- Решение ---
+ * ретерним с наших функций this
+ */
+element.toggleHovered().changeClass("open");
+console.log(element);

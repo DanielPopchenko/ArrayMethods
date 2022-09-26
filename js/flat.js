@@ -32,5 +32,17 @@ const tweets = [
  * Самый лучший вариант(больше производительность)
  * flatMap - по умолчанию разглаживает 1 уровень вложенности
  */
-const tags = tweets.flatMap(t => t.tags);
-console.log(tags);
+// const tags = tweets.flatMap(t => t.tags);
+// console.log(tags);
+
+const stats = tweets
+  .flatMap(t => t.tags)
+  .reduce(
+    (acc, tag) => ({
+      ...acc,
+      [tag]: acc[tag] ? acc[tag] + 1 : 1,
+    }),
+    {}
+  );
+
+console.log(stats);
